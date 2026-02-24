@@ -37,8 +37,12 @@ jobs:
           extensions: mbstring, pdo_mysql
           coverage: none
 
-      - name: Copy .env
-        run: cp backend/.env.example backend/.env
+      - name: Copy testing env
+        run: cp backend/.env.testing backend/.env
+
+      - name: Clear config cache
+        working-directory: backend
+        run: php artisan config:clear
 
       - name: Install Composer dependencies
         working-directory: backend
