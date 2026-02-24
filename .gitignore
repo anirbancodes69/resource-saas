@@ -1,20 +1,44 @@
-# Laravel
-backend/vendor/
-backend/node_modules/
-backend/.env
-backend/storage/*.key
-
-# React (future)
-frontend/node_modules/
-frontend/dist/
-
+#######################################
 # OS
+#######################################
 .DS_Store
 Thumbs.db
 
-# Docker
-docker/mysql/data/
-
+#######################################
 # IDE
+#######################################
 .vscode/
 .idea/
+*.swp
+*.swo
+
+#######################################
+# Laravel
+#######################################
+backend/vendor/
+backend/node_modules/
+backend/storage/*.key
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/bootstrap/cache/*.php
+backend/.env
+backend/.env.testing
+
+#######################################
+# React (future)
+#######################################
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+#######################################
+# Logs
+#######################################
+*.log
+
+#######################################
+# Docker local data
+#######################################
+docker/mysql/data/
