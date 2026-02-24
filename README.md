@@ -16,7 +16,6 @@ Resource SaaS aims to be an AI‑ready resource and project management platform 
 * CI‑driven quality gates
 * Scalable branching strategy
 * Test‑driven development workflow
-
 ---
 
 # 🏗️ High-Level Architecture
