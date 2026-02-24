@@ -56,17 +56,6 @@ jobs:
         working-directory: backend
         run: php artisan config:clear
 
-      - name: Wait for MySQL
-        run: |
-          echo "Waiting for MySQL..."
-          for i in {1..30}; do
-            nc -z mysql 3306 && echo "MySQL is up!" && exit 0
-            echo "Waiting..."
-            sleep 2
-          done
-          echo "MySQL failed to start"
-          exit 1
-
       - name: Run migrations
         working-directory: backend
         run: php artisan migrate --force
