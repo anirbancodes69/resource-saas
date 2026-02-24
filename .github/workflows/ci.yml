@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop, feature/* ]
   pull_request:
     branches: [ main, develop ]
 
@@ -37,8 +37,8 @@ jobs:
           extensions: mbstring, pdo_mysql
           coverage: none
 
-      - name: Copy .env
-        run: cp backend/.env.example backend/.env
+      - name: Copy testing env
+        run: cp backend/.env.testing backend/.env
 
       - name: Install Composer dependencies
         working-directory: backend
@@ -51,6 +51,10 @@ jobs:
       - name: Generate JWT secret
         working-directory: backend
         run: php artisan jwt:secret --force
+
+      - name: Clear config
+        working-directory: backend
+        run: php artisan config:clear
 
       - name: Run migrations
         working-directory: backend
