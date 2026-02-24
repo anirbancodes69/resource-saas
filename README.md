@@ -1,0 +1,1 @@
+docker exec -it rs_php php artisan test
