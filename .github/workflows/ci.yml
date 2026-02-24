@@ -37,8 +37,8 @@ jobs:
           extensions: mbstring, pdo_mysql
           coverage: none
 
-      - name: Copy .env.testing
-        run: cp backend/.env.testing backend/.env
+      - name: Copy .env
+        run: cp backend/.env.example backend/.env
 
       - name: Install Composer dependencies
         working-directory: backend
@@ -47,6 +47,10 @@ jobs:
       - name: Generate app key
         working-directory: backend
         run: php artisan key:generate
+
+      - name: Generate JWT secret
+        working-directory: backend
+        run: php artisan jwt:secret --force
 
       - name: Run migrations
         working-directory: backend
