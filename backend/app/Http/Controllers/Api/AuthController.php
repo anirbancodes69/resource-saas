@@ -73,4 +73,9 @@ class AuthController extends Controller
             'message' => 'Successfully logged out',
         ]);
     }
+
+    public function me(): JsonResponse
+    {
+        return response()->json(auth('api')->user());
+    }
 }
