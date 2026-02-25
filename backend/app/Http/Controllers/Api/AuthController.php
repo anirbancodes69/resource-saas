@@ -64,4 +64,13 @@ class AuthController extends Controller
             'expires_in' => config('jwt.ttl') * 60,
         ]);
     }
+
+    public function logout(): JsonResponse
+    {
+        JWTAuth::invalidate(JWTAuth::getToken());
+
+        return response()->json([
+            'message' => 'Successfully logged out',
+        ]);
+    }
 }
